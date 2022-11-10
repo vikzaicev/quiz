@@ -31,6 +31,9 @@ main {
     padding: 0px 10px;
 }
 .hero {
+    background: url(../img/kosmos.jpg) no-repeat;
+    background-size: cover;
+    max-width: 100%;
     flex: 1 1 auto;
     display: flex;
     align-items: center;
@@ -42,7 +45,9 @@ main {
         padding: 40px;
         background-color: rgb(213, 221, 213);
         border-radius: 20px;
+        box-shadow: 5px 5px 5px rgba(61, 31, 31, 0.411);
         min-width: 300px;
+        opacity: 0.8;
         @media (max-width: 1070.98px) {
             padding: 30px;
         }
@@ -50,10 +55,29 @@ main {
             padding: 20px;
         }
     }
+
+    &__ind {
+        background-color: rgb(145, 206, 172);
+        width: 100%;
+        height: 10px;
+        border: 1px #22241d;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    &__strong {
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #2a256d;
+        border-radius: 10px;
+    }
     &__title {
         font-size: 36px;
-        font-weight: 900;
-        color: #3026b3;
+        font-weight: 700;
+        color: #2a256d;
         text-align: center;
         padding: 30px 20px;
         max-width: 700px;
@@ -69,9 +93,11 @@ main {
         display: flex;
         flex-direction: column;
         font-size: 24px;
+        font-weight: 600;
         text-align: center;
         margin-bottom: 30px;
         max-width: 750px;
+        color: #000;
     }
     label {
         display: flex;
@@ -81,6 +107,7 @@ main {
 
     .answer {
         margin: 5px 15px 0 0;
+        color: #000;
     }
 
     &__button {
@@ -91,7 +118,6 @@ main {
     &__buttonsumbit {
         display: none;
     }
-    
 }
 .btn {
     margin-bottom: 30px;

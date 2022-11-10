@@ -53,9 +53,13 @@ const text = document.querySelector('.hero__text')
 const button = document.querySelector('.hero__button')
 const buttonStart = document.querySelector('.hero__buttonstart')
 const buttonSumbit = document.querySelector('.hero__buttonsumbit')
+const str = document.querySelector('.hero__strong')
+console.log(str);
+
 //переменные
 let questionInd = 0
 let result = 0
+
 
 
 //очистка формы
@@ -76,6 +80,9 @@ function showQuesh() {
         </label>`
         text.innerHTML = text.innerHTML + questionTempl
     }
+    let wid = ((questionInd + 1) * 100) / questions.length
+    console.log(wid);
+    str.style.width = `${wid}` + "%";
 }
 
 //отклик на "Начать тест"
@@ -94,10 +101,31 @@ function lastQush() {
         showQuesh()
     }
     else {
-        title.innerText = `Ваш результат - ${result}`,
-            buttonSumbit.innerText = `Начать заново`
+        showResult()
+    }
+}
+
+//вывод результата теста
+function showResult() {
+    if(result * 100 / questions.length == 100) {
+        title.innerText = `Поздравляем Вы ответели на все вопросы !!!
+        Ваш результат  ${ result } из ${questions.length}`,
+        buttonSumbit.innerText = `Начать заново`
         buttonSumbit.onclick = () => history.go()
     }
+    if(result * 100 / questions.length < 100 && result * 100 / questions.length > 50) {
+        title.innerText = ` Вы ответели больше половины вопросов !!!
+        Ваш результат  ${ result } из ${questions.length}`,
+        buttonSumbit.innerText = `Начать заново`
+        buttonSumbit.onclick = () => history.go()
+    }
+    if(result * 100 / questions.length <  50) {
+        title.innerText = ` Следует потренироваться
+        Ваш результат  ${ result } из ${questions.length}`,
+        buttonSumbit.innerText = `Начать заново`
+        buttonSumbit.onclick = () => history.go()
+    }
+    
 }
 
 //Проверка ответа пользователя
